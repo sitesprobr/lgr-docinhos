@@ -146,16 +146,6 @@
       border-bottom: 1px solid var(--line)
     }
 
-    .sabores li {
-      padding: 7px 4px
-    }
-
-    .sabores li::before {
-      content: "💗";
-      margin-right: 8px;
-      font-size: 13px
-    }
-
     li span small {
       display: block;
       color: var(--muted);
@@ -516,8 +506,8 @@
       <input id="c-tel" type="tel" placeholder="(53) 9____-____">
       <label for="c-end">Endereço de entrega</label>
       <input id="c-end" type="text" placeholder="Rua, número, bairro, referência">
-      <label for="c-obs">Observações (sabores desejados)</label>
-      <input id="c-obs" type="text" placeholder="Ex: 50 brigadeiro ao blend, 50 ninho com nutella...">
+      <label for="c-obs">Observações (opcional)</label>
+      <input id="c-obs" type="text" placeholder="Ex: tamanho do cento, data de entrega...">
     </div>
     <div class="drawer-rodape">
       <button class="btn" id="finalizar">Enviar encomenda no WhatsApp</button>
@@ -551,18 +541,8 @@
         q.append(minus, out, plus); li.append(wrap, q); ul.appendChild(li);
       });
     }
-    function renderSabores(id, list) {
-      var ul = document.getElementById(id);
-      if (!ul || !list) return;
-      list.forEach(function (it) {
-        var n = Array.isArray(it) ? it[0] : it;
-        var li = document.createElement("li");
-        var s = document.createElement("span"); s.textContent = n;
-        li.appendChild(s); ul.appendChild(li);
-      });
-    }
     render("centos", data.centos); render("caixas", data.caixas); render("bolos", data.bolos);
-    renderSabores("tradicionais", data.tradicionais); renderSabores("especiais", data.especiais); renderSabores("especiais2", data.especiais2);
+    render("tradicionais", data.tradicionais); render("especiais", data.especiais); render("especiais2", data.especiais2);
 
     function totalItens() { var t = 0; for (var k in qty) t += qty[k]; return t; }
 
@@ -627,7 +607,7 @@
       if (nome) msg += "\n\nNome: " + nome;
       if (tel) msg += "\nTelefone: " + tel;
       if (end) msg += "\nEndereço: " + end;
-      if (obs) msg += "\nSabores/Observações: " + obs;
+      if (obs) msg += "\nObservações: " + obs;
       window.open("https://wa.me/5553981304465?text=" + encodeURIComponent(msg), "_blank");
     };
   </script>
