@@ -1,4 +1,8 @@
 var data = {
+  centos: [["Cento de doces tradicionais", "17g cada • R$ 180,00"], ["Cento de doces especiais", "23g cada • R$ 230,00"], ["Cento de doces especiais II", "23g cada • R$ 260,00"]],
   caixas: [["Caixa com 6 doces", "23g cada • R$ 15,00"], ["Caixa com 12 doces", "23g cada • R$ 30,00"], ["Caixa com 25 doces", "23g cada • R$ 65,00"], ["Caixa com 50 doces", "23g cada • R$ 125,00"]],
+  tradicionais: [["Branquinho"], ["Brigadeiro ao Blend"], ["Beijinho"]],
+  especiais: [["Ninho com Nutella"], ["Churros com Nutella"], ["Moranguinho"], ["Limão siciliano"], ["Amendoim"], ["Paçoca com doce de leite"], ["Stikadinho massa chocolate"], ["Stikadinho massa morango"], ["Beijinho com leite Ninho"], ["Brigadeiro meio amargo"]],
+  especiais2: [["Surpresa de uva verde"], ["Nozes"], ["Floresta negra"], ["Bombom de morango"]],
   bolos: []
 };
