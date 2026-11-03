@@ -1,6 +1,4 @@
 var data = {
-  bolos: [["Bolo de chocolate", "Médio R$ 35 • Grande R$ 50"], ["Bolo de leite ninho", "Médio R$ 35 • Grande R$ 50"], ["Bolo de cenoura", "Médio R$ 35 • Grande R$ 50"]],
-  doces: [["Brigadeiro", "R$ 120 o cento"], ["Beijinho", "R$ 120 o cento"], ["Brigadeiro de Leite Ninho", "R$ 120 o cento"]],
-  pote: [["Bolo no pote – Ninho", "R$ 12"], ["Bolo no pote – Chocolatudo", "R$ 12"]],
-  aniversario: [["Bolo de aniversário", "a combinar"], ["Fatias de bolo para aniversário", "a combinar"]]
+  caixas: [["Caixa com 6 doces", "23g cada • R$ 15,00"], ["Caixa com 12 doces", "23g cada • R$ 30,00"], ["Caixa com 25 doces", "23g cada • R$ 65,00"], ["Caixa com 50 doces", "23g cada • R$ 125,00"]],
+  bolos: []
 };
