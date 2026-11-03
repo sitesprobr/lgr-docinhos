@@ -436,24 +436,14 @@
     </header>
 
     <section>
-      <h2>Bolo no pote</h2>
-      <ul id="pote"></ul>
-      <p class="obs">Escolha o sabor.</p>
+      <h2>Caixas de Doces</h2>
+      <ul id="caixas"></ul>
+      <p class="obs">Brigadeiros gourmet de 23g cada. Escolha os sabores pelo WhatsApp.</p>
     </section>
     <section>
-      <h2>Bolos Caseiros</h2>
+      <h2>Bolos</h2>
       <ul id="bolos"></ul>
-      <p class="obs">Obs: bolos com coberturas.</p>
-    </section>
-    <section>
-      <h2>Doces para Festas</h2>
-      <ul id="doces"></ul>
-      <p class="obs">Vendidos por cento (100 unidades).</p>
-    </section>
-    <section>
-      <h2>🎉 Aniversários</h2>
-      <ul id="aniversario"></ul>
-      <p class="obs">Monte sua festa! Valores combinados pelo WhatsApp.</p>
+      <p class="obs">Bolos caseiros e decorados.</p>
     </section>
 
     <div class="info">
@@ -497,7 +487,7 @@
       <label for="c-end">Endereço de entrega</label>
       <input id="c-end" type="text" placeholder="Rua, número, bairro, referência">
       <label for="c-obs">Observações (opcional)</label>
-      <input id="c-obs" type="text" placeholder="Ex: sabor, data de entrega...">
+      <input id="c-obs" type="text" placeholder="Ex: sabor dos doces, data de entrega...">
     </div>
     <div class="drawer-rodape">
       <button class="btn" id="finalizar">Enviar encomenda no WhatsApp</button>
@@ -531,7 +521,7 @@
         q.append(minus, out, plus); li.append(wrap, q); ul.appendChild(li);
       });
     }
-    render("pote", data.pote); render("bolos", data.bolos); render("doces", data.doces); render("aniversario", data.aniversario);
+    render("caixas", data.caixas); render("bolos", data.bolos);
 
     function totalItens() { var t = 0; for (var k in qty) t += qty[k]; return t; }
 
