@@ -6,6 +6,7 @@ var data = {
   especiais2: [["Surpresa de uva verde"], ["Nozes"], ["Floresta negra"], ["Bombom de morango"]],
   bolos: [["Bolo de ninho trufado com morango e brigadeiro blend", "Tamanho a combinar"], ["Bolo de beijinho e brigadeiro", "Tamanho a combinar"], ["Bolo de maracujá trufado e brigadeiro meio amargo", "Tamanho a combinar", "imagens/Captura de tela 2026-11-03 192700.png"], ["Bolo de brigadeiro, nata e bombom", "Tamanho a combinar"], ["Bolo de limão siciliano", "Tamanho a combinar"], ["Bolo de maracujá", "Tamanho a combinar"]],
   kitbolo: [["Kit Bolo de 3kg + 60 doces gourmet", "R$ 350,00", "imagens/Captura de tela 2026-11-03 193551.png"], ["Kit Bolo de 2kg (nata com bombom e brigadeiro) + cento de especiais 17g", "R$ 300,00", "imagens/Captura de tela 2026-11-03 194035.png"], ["Kit Bolo de 700g + caixa de doces", "R$ 100,00", "imagens/Captura de tela 2026-11-03 194818.png"]],
+  massas: [["Pão de ló"], ["Chiffon"], ["Amanteigado"]],
   personalizacao: [["Personalização de carimbos", "R$ 30,00"], ["Carimbo com ejetor", "R$ 50,00"], ["Topper para bolos", "R$ 20,00"]],
   exemplosCarimbo: ["imagens/Captura de tela 2026-11-03 181523.png", "imagens/Captura de tela 2026-11-03 181532.png", "imagens/Captura de tela 2026-11-03 181557.png"]
 };
