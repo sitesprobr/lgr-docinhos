@@ -219,7 +219,8 @@
       object-fit: cover;
       border-radius: 14px;
       border: 1px solid var(--line);
-      background: var(--card)
+      background: var(--card);
+      cursor: pointer
     }
 
     .cta {
@@ -446,6 +447,43 @@
       padding: 14px;
       cursor: pointer
     }
+
+    /* Visualizador de imagem (lightbox) */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      background: rgba(0, 0, 0, .85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px
+    }
+
+    .lightbox.aberto {
+      display: flex
+    }
+
+    .lightbox img {
+      max-width: 95vw;
+      max-height: 90vh;
+      border-radius: 14px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, .5)
+    }
+
+    .lightbox .fechar-lb {
+      position: absolute;
+      top: calc(16px + env(safe-area-inset-top, 0px));
+      right: 16px;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .9);
+      color: #333;
+      font: 700 22px/1 inherit;
+      cursor: pointer
+    }
   </style>
 </head>
 
@@ -486,7 +524,7 @@
     <section>
       <h2>Personalizações</h2>
       <ul id="personalizacao"></ul>
-      <p class="obs">Pedir à parte. Veja alguns exemplos de carimbos:</p>
+      <p class="obs">Pedir à parte. Toque nas fotos para ampliar:</p>
       <div class="galeria" id="exemplos-carimbo"></div>
     </section>
 
@@ -547,9 +585,19 @@
     </div>
   </aside>
 
+  <div class="lightbox" id="lightbox">
+    <button class="fechar-lb" id="fechar-lb" aria-label="Fechar imagem">✕</button>
+    <img id="lightbox-img" src="" alt="Imagem ampliada">
+  </div>
+
   <script src="menu.js"></script>
   <script>
     var qty = {};
+    function abrirImagem(src) {
+      var lb = document.getElementById("lightbox");
+      document.getElementById("lightbox-img").src = src;
+      lb.classList.add("aberto");
+    }
     function render(id, list) {
       var ul = document.getElementById(id);
       if (!ul || !list) return;
@@ -559,6 +607,7 @@
         var wrap = document.createElement("div"); wrap.className = "nome-wrap";
         if (img) {
           var im = document.createElement("img"); im.className = "thumb"; im.src = img; im.alt = n; im.loading = "lazy";
+          im.onclick = function () { abrirImagem(img); };
           wrap.appendChild(im);
         }
         var s = document.createElement("span"); s.textContent = n;
@@ -579,12 +628,16 @@
       if (!box || !list) return;
       list.forEach(function (src) {
         var im = document.createElement("img"); im.src = src; im.alt = "Exemplo de carimbo"; im.loading = "lazy";
+        im.onclick = function () { abrirImagem(src); };
         box.appendChild(im);
       });
     }
     render("centos", data.centos); render("caixas", data.caixas); render("bolos", data.bolos); render("personalizacao", data.personalizacao);
     render("tradicionais", data.tradicionais); render("especiais", data.especiais); render("especiais2", data.especiais2);
     renderGaleria("exemplos-carimbo", data.exemplosCarimbo);
+
+    document.getElementById("fechar-lb").onclick = function () { document.getElementById("lightbox").classList.remove("aberto"); };
+    document.getElementById("lightbox").onclick = function (e) { if (e.target.id === "lightbox") this.classList.remove("aberto"); };
 
     function totalItens() { var t = 0; for (var k in qty) t += qty[k]; return t; }
 
