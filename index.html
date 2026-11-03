@@ -464,7 +464,13 @@
     <section>
       <h2>Bolos</h2>
       <ul id="bolos"></ul>
-      <p class="obs">Bolos caseiros e decorados.</p>
+      <p class="obs">Recheios e tamanho combinados na hora do pedido.</p>
+    </section>
+
+    <section>
+      <h2>Personalizações</h2>
+      <ul id="personalizacao"></ul>
+      <p class="obs">Pedir à parte.</p>
     </section>
 
     <div class="info">
@@ -551,7 +557,7 @@
         q.append(minus, out, plus); li.append(wrap, q); ul.appendChild(li);
       });
     }
-    render("centos", data.centos); render("caixas", data.caixas); render("bolos", data.bolos);
+    render("centos", data.centos); render("caixas", data.caixas); render("bolos", data.bolos); render("personalizacao", data.personalizacao);
     render("tradicionais", data.tradicionais); render("especiais", data.especiais); render("especiais2", data.especiais2);
 
     function totalItens() { var t = 0; for (var k in qty) t += qty[k]; return t; }
