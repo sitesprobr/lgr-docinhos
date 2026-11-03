@@ -5,5 +5,6 @@ var data = {
   especiais: [["Ninho com Nutella", "", "imagens/Captura de tela 2026-11-03 181111.png"], ["Churros com Nutella", "", "imagens/Captura de tela 2026-11-03 181123.png"], ["Moranguinho"], ["Limão siciliano"], ["Amendoim"], ["Paçoca com doce de leite"], ["Stikadinho massa chocolate"], ["Stikadinho massa morango"], ["Beijinho com leite Ninho"], ["Brigadeiro meio amargo"]],
   especiais2: [["Surpresa de uva verde"], ["Nozes"], ["Floresta negra"], ["Bombom de morango"]],
   bolos: [["Bolo de ninho trufado com morango e brigadeiro blend", "Tamanho a combinar"], ["Bolo de beijinho e brigadeiro", "Tamanho a combinar"], ["Bolo de maracujá trufado e brigadeiro meio amargo", "Tamanho a combinar"], ["Bolo de brigadeiro, nata e bombom", "Tamanho a combinar"], ["Bolo de limão siciliano", "Tamanho a combinar"], ["Bolo de maracujá", "Tamanho a combinar"]],
-  personalizacao: [["Personalização de carimbos", "R$ 30,00"], ["Carimbo com ejetor", "R$ 50,00"], ["Topper para bolos", "R$ 20,00"]]
+  personalizacao: [["Personalização de carimbos", "R$ 30,00"], ["Carimbo com ejetor", "R$ 50,00"], ["Topper para bolos", "R$ 20,00"]],
+  exemplosCarimbo: ["imagens/Captura de tela 2026-11-03 181523.png", "imagens/Captura de tela 2026-11-03 181532.png", "imagens/Captura de tela 2026-11-03 181557.png"]
 };
