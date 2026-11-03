@@ -206,6 +206,22 @@
       min-width: 0
     }
 
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 12px 0 4px
+    }
+
+    .galeria img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--card)
+    }
+
     .cta {
       background: var(--card);
       border: 1px solid var(--line);
@@ -470,7 +486,8 @@
     <section>
       <h2>Personalizações</h2>
       <ul id="personalizacao"></ul>
-      <p class="obs">Pedir à parte.</p>
+      <p class="obs">Pedir à parte. Veja alguns exemplos de carimbos:</p>
+      <div class="galeria" id="exemplos-carimbo"></div>
     </section>
 
     <div class="info">
@@ -557,8 +574,17 @@
         q.append(minus, out, plus); li.append(wrap, q); ul.appendChild(li);
       });
     }
+    function renderGaleria(id, list) {
+      var box = document.getElementById(id);
+      if (!box || !list) return;
+      list.forEach(function (src) {
+        var im = document.createElement("img"); im.src = src; im.alt = "Exemplo de carimbo"; im.loading = "lazy";
+        box.appendChild(im);
+      });
+    }
     render("centos", data.centos); render("caixas", data.caixas); render("bolos", data.bolos); render("personalizacao", data.personalizacao);
     render("tradicionais", data.tradicionais); render("especiais", data.especiais); render("especiais2", data.especiais2);
+    renderGaleria("exemplos-carimbo", data.exemplosCarimbo);
 
     function totalItens() { var t = 0; for (var k in qty) t += qty[k]; return t; }
 
