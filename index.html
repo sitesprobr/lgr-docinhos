@@ -126,6 +126,11 @@
       display: inline-block
     }
 
+    .sabores h2 {
+      font-size: 20px;
+      margin: 22px 0 8px
+    }
+
     ul {
       list-style: none;
       margin: 0;
@@ -139,6 +144,16 @@
       gap: 12px;
       padding: 11px 4px;
       border-bottom: 1px solid var(--line)
+    }
+
+    .sabores li {
+      padding: 7px 4px
+    }
+
+    .sabores li::before {
+      content: "💗";
+      margin-right: 8px;
+      font-size: 13px
     }
 
     li span small {
@@ -436,10 +451,25 @@
     </header>
 
     <section>
+      <h2>Doces por Cento</h2>
+      <ul id="centos"></ul>
+      <p class="obs">Escolha os sabores pelo WhatsApp.</p>
+    </section>
+    <section>
       <h2>Caixas de Doces</h2>
       <ul id="caixas"></ul>
-      <p class="obs">Brigadeiros gourmet de 23g cada. Escolha os sabores pelo WhatsApp.</p>
+      <p class="obs">Doces de 23g cada. Monte sua caixinha com os sabores que quiser.</p>
     </section>
+
+    <section class="sabores">
+      <h2>💗 Sabores tradicionais</h2>
+      <ul id="tradicionais"></ul>
+      <h2>💗 Sabores especiais</h2>
+      <ul id="especiais"></ul>
+      <h2>💗 Sabores especiais II</h2>
+      <ul id="especiais2"></ul>
+    </section>
+
     <section>
       <h2>Bolos</h2>
       <ul id="bolos"></ul>
@@ -486,8 +516,8 @@
       <input id="c-tel" type="tel" placeholder="(53) 9____-____">
       <label for="c-end">Endereço de entrega</label>
       <input id="c-end" type="text" placeholder="Rua, número, bairro, referência">
-      <label for="c-obs">Observações (opcional)</label>
-      <input id="c-obs" type="text" placeholder="Ex: sabor dos doces, data de entrega...">
+      <label for="c-obs">Observações (sabores desejados)</label>
+      <input id="c-obs" type="text" placeholder="Ex: 50 brigadeiro ao blend, 50 ninho com nutella...">
     </div>
     <div class="drawer-rodape">
       <button class="btn" id="finalizar">Enviar encomenda no WhatsApp</button>
@@ -521,7 +551,18 @@
         q.append(minus, out, plus); li.append(wrap, q); ul.appendChild(li);
       });
     }
-    render("caixas", data.caixas); render("bolos", data.bolos);
+    function renderSabores(id, list) {
+      var ul = document.getElementById(id);
+      if (!ul || !list) return;
+      list.forEach(function (it) {
+        var n = Array.isArray(it) ? it[0] : it;
+        var li = document.createElement("li");
+        var s = document.createElement("span"); s.textContent = n;
+        li.appendChild(s); ul.appendChild(li);
+      });
+    }
+    render("centos", data.centos); render("caixas", data.caixas); render("bolos", data.bolos);
+    renderSabores("tradicionais", data.tradicionais); renderSabores("especiais", data.especiais); renderSabores("especiais2", data.especiais2);
 
     function totalItens() { var t = 0; for (var k in qty) t += qty[k]; return t; }
 
@@ -586,7 +627,7 @@
       if (nome) msg += "\n\nNome: " + nome;
       if (tel) msg += "\nTelefone: " + tel;
       if (end) msg += "\nEndereço: " + end;
-      if (obs) msg += "\nObservações: " + obs;
+      if (obs) msg += "\nSabores/Observações: " + obs;
       window.open("https://wa.me/5553981304465?text=" + encodeURIComponent(msg), "_blank");
     };
   </script>
