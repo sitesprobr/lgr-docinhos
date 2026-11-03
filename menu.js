@@ -4,5 +4,5 @@ var data = {
   tradicionais: [["Branquinho"], ["Brigadeiro ao Blend"], ["Beijinho"]],
   especiais: [["Ninho com Nutella"], ["Churros com Nutella"], ["Moranguinho"], ["Limão siciliano"], ["Amendoim"], ["Paçoca com doce de leite"], ["Stikadinho massa chocolate"], ["Stikadinho massa morango"], ["Beijinho com leite Ninho"], ["Brigadeiro meio amargo"]],
   especiais2: [["Surpresa de uva verde"], ["Nozes"], ["Floresta negra"], ["Bombom de morango"]],
-  bolos: [["Bolo de ninho trufado com morango e brigadeiro blend", "Tamanho a combinar"], ["Bolo de beijinho e brigadeiro", "Tamanho a combinar"], ["Bolo de maracujá trufado e brigadeiro meio amargo", "Tamanho a combinar"], ["Bolo de brigadeiro, nata e bombom", "Tamanho a combinar"]]
+  bolos: [["Bolo de ninho trufado com morango e brigadeiro blend", "Tamanho a combinar"], ["Bolo de beijinho e brigadeiro", "Tamanho a combinar"], ["Bolo de maracujá trufado e brigadeiro meio amargo", "Tamanho a combinar"], ["Bolo de brigadeiro, nata e bombom", "Tamanho a combinar"], ["Bolo de limão siciliano", "Tamanho a combinar"], ["Bolo de maracujá", "Tamanho a combinar"]]
 };
