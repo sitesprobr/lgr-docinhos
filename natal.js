@@ -1,7 +1,21 @@
 // Cardápio de Natal da LGR
+// Caixas: { nome, preco, sabores, obs, img }
 var dataNatal = {
   caixas: [
-    ["Caixa de doces natalinos", "A partir de 9 doces • R$ 30,00"]
+    {
+      nome: "Caixa 25 Doces",
+      preco: "R$ 52,00",
+      sabores: "Brigadeiro, Beijinho, Ferrero, Ninho com Nutella e Doce de leite",
+      obs: "Decoração natalina e embalagem presenteável",
+      img: "Captura de tela 2026-11-24 204250.png"
+    },
+    {
+      nome: "Caixa de doces natalinos",
+      preco: "R$ 30,00",
+      sabores: "A partir de 9 doces",
+      obs: "Decoração natalina e embalagem presenteável",
+      img: ""
+    }
   ],
   panetones: [
     ["Mini panetone de frutas ou chocotone", "R$ 19,90"],
