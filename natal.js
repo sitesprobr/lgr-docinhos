@@ -11,5 +11,19 @@ var dataNatal = {
     ["Porta panetone Mini", "R$ 10,00"],
     ["Porta panetone 250g", "R$ 20,00"],
     ["Porta panetone 500g", "R$ 30,00"]
+  ],
+  saboresTrufados: [
+    "Ninho com Nutella",
+    "Brigadeiro Blend",
+    "Meio Amargo",
+    "Trufado de Maracujá e Chocolate Blend",
+    "Limão Siciliano e Ninho",
+    "KitKat com Meio Amargo",
+    "Stikadinho com Brigadeiro Blend",
+    "Ninho Trufado com Brigadeiro Meio Amargo"
+  ],
+  adicionaisNatal: [
+    "Bis", "M&Ms", "Ouro Branco", "Sonho de Valsa", "KitKat", "Ferrero Rocher",
+    "Amendoim", "Castanha", "Nozes", "Brigadeiro Gourmet", "Ninho com Nutella Gourmet", "Paçoca"
   ]
 };
