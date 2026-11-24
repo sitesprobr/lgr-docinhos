@@ -172,6 +172,11 @@
     </header>
 
     <section>
+      <h2>🎁 Caixas de Natal</h2>
+      <ul id="caixas"></ul>
+    </section>
+
+    <section>
       <h2>🍞 Panetones & Chocotones</h2>
       <ul id="panetones"></ul>
     </section>
@@ -297,6 +302,7 @@
         c.textContent = txt; box.appendChild(c);
       });
     }
+    render("caixas", dataNatal.caixas);
     render("panetones", dataNatal.panetones);
     render("portapanetone", dataNatal.portapanetone);
     renderChips("saboresTrufados", dataNatal.saboresTrufados);
