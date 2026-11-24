@@ -5,20 +5,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>LGR – Cardápio de Natal 🎄</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600;700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Pacifico&family=Quicksand:wght@500;600;700&display=swap"
     rel="stylesheet">
   <style>
     :root {
       box-sizing: border-box;
-      --bg: #fbecec;
-      --card: #fff7f7;
+      --bg: #2a0a0d;
+      --card: #ffffff;
       --pill: #f3c9cd;
-      --ink: #4a2f2f;
-      --muted: #96675f;
+      --ink: #3a2020;
+      --muted: #8a5a52;
       --accent: #c62d33;
       --accent2: #1f7a44;
-      --gold: #c99a6a;
-      --line: #eec3c3;
+      --gold: #e3b448;
+      --line: #f0d2d2;
       --onaccent: #fff;
       color-scheme: light;
     }
@@ -27,47 +27,81 @@
 
     body {
       margin: 0;
-      background: var(--bg);
+      background:
+        radial-gradient(120% 60% at 50% 0%, #7a1016 0%, #2a0a0d 55%),
+        linear-gradient(180deg, #2a0a0d 0%, #102a18 100%);
+      background-attachment: fixed;
       color: var(--ink);
       font-family: 'Quicksand', system-ui, sans-serif;
       font-weight: 500;
       line-height: 1.5;
       padding-bottom: 96px;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    main { max-width: 620px; margin: 0 auto; padding: 0 18px }
+    /* Neve */
+    .neve { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden }
+    .neve span {
+      position: absolute; top: -10px; color: #fff; opacity: .85;
+      animation: cair linear infinite; user-select: none
+    }
+    @keyframes cair {
+      0% { transform: translateY(-10px) translateX(0) rotate(0); opacity: 0 }
+      10% { opacity: .9 }
+      100% { transform: translateY(105vh) translateX(40px) rotate(360deg); opacity: .2 }
+    }
+
+    main { max-width: 620px; margin: 0 auto; padding: 0 18px; position: relative; z-index: 1 }
+
+    /* Cordão de luzes */
+    .luzes { display: flex; justify-content: center; gap: 14px; padding: 10px 0 0; flex-wrap: wrap }
+    .luzes i {
+      width: 11px; height: 15px; border-radius: 50%; display: inline-block;
+      animation: piscar 1.4s ease-in-out infinite
+    }
+    .luzes i:nth-child(5n+1) { background: #ff5252; box-shadow: 0 0 10px #ff5252; animation-delay: 0s }
+    .luzes i:nth-child(5n+2) { background: #ffd740; box-shadow: 0 0 10px #ffd740; animation-delay: .2s }
+    .luzes i:nth-child(5n+3) { background: #69f0ae; box-shadow: 0 0 10px #69f0ae; animation-delay: .4s }
+    .luzes i:nth-child(5n+4) { background: #40c4ff; box-shadow: 0 0 10px #40c4ff; animation-delay: .6s }
+    .luzes i:nth-child(5n+5) { background: #ff80ab; box-shadow: 0 0 10px #ff80ab; animation-delay: .8s }
+    @keyframes piscar { 0%, 100% { opacity: 1 } 50% { opacity: .25 } }
 
     .voltar {
       display: inline-flex; align-items: center; gap: 6px;
-      margin: 18px 0 0; color: var(--accent); font-weight: 700;
+      margin: 12px 0 0; color: #ffd9db; font-weight: 700;
       text-decoration: none; font-size: 15px
     }
 
-    header { text-align: center; padding: 14px 0 8px }
+    header { text-align: center; padding: 6px 0 8px }
 
     .logo {
       width: 130px; height: 130px; border-radius: 50%; margin: 0 auto 10px;
-      object-fit: cover; display: block; border: 3px solid var(--gold);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, .12)
+      object-fit: cover; display: block; border: 4px solid var(--gold);
+      box-shadow: 0 0 22px rgba(227,180,72,.6)
     }
 
     h1 {
-      font-family: 'Pacifico', cursive; font-weight: 400; font-size: 34px; margin: 6px 0 0;
-      color: var(--accent)
+      font-family: 'Mountains of Christmas', 'Pacifico', cursive; font-weight: 700; font-size: 46px; margin: 6px 0 0;
+      color: #fff; text-shadow: 0 2px 0 #c62d33, 0 0 18px rgba(227,180,72,.6)
     }
-    .tag { color: var(--accent2); margin: 2px 0 0; font-weight: 700 }
-    .dots { text-align: center; font-size: 18px; margin: 6px 0 0; letter-spacing: 4px }
+    .tag { color: #a8e6c1; margin: 2px 0 0; font-weight: 700 }
+    .dots { text-align: center; font-size: 20px; margin: 8px 0 0; letter-spacing: 6px }
 
     h2 {
-      font-family: 'Pacifico', cursive; font-weight: 400; font-size: 23px;
-      background: var(--accent); color: #fff; border-radius: 999px;
-      padding: 6px 22px; margin: 30px 0 12px; display: inline-block
+      font-family: 'Mountains of Christmas', cursive; font-weight: 700; font-size: 30px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2)); color: #fff; border-radius: 14px;
+      padding: 6px 24px; margin: 30px 0 12px; display: inline-block; box-shadow: 0 4px 14px rgba(0,0,0,.3)
     }
+
+    section { background: rgba(255,255,255,.96); border-radius: 20px; padding: 6px 16px 14px; margin-top: 18px; box-shadow: 0 8px 24px rgba(0,0,0,.25); border: 2px solid var(--gold) }
 
     ul { list-style: none; margin: 0; padding: 0 }
 
-    li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 4px; border-bottom: 1px solid var(--line) }
+    li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 4px; border-bottom: 1px dashed var(--line) }
+    li:last-child { border-bottom: 0 }
     li span small { display: block; color: var(--muted); font-size: 13px }
+    li span.nome-item { font-weight: 700 }
 
     .q { display: flex; align-items: center; gap: 8px; flex: none }
     .q button { width: 34px; height: 34px; border-radius: 50%; border: 0; background: var(--pill); color: var(--ink); font: 700 20px/1 inherit; cursor: pointer }
@@ -75,30 +109,30 @@
     .q output { min-width: 18px; text-align: center; font-weight: 700 }
 
     .obs { color: var(--muted); font-size: 14px; margin: 10px 4px 0 }
-
-    .thumb { width: 60px; height: 60px; border-radius: 12px; object-fit: cover; flex: none; border: 1px solid var(--line); cursor: pointer; background: var(--card) }
     li .nome-wrap { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0 }
 
-    .cta { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; margin-top: 34px; text-align: center }
+    .cta { background: rgba(255,255,255,.96); border: 2px solid var(--gold); border-radius: 20px; padding: 20px; margin-top: 20px; text-align: center }
     .cta p { margin: 4px 0 }
     .cta a { color: var(--accent); font-weight: 700 }
 
-    .info { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; margin-top: 18px }
-    .info h3 { font-family: 'Pacifico', cursive; font-weight: 400; font-size: 22px; margin: 0 0 10px; color: var(--accent2) }
+    .info { background: rgba(255,255,255,.96); border: 2px solid var(--gold); border-radius: 20px; padding: 20px; margin-top: 18px }
+    .info h3 { font-family: 'Mountains of Christmas', cursive; font-weight: 700; font-size: 26px; margin: 0 0 10px; color: var(--accent2) }
     .info ul.lista { margin: 0 }
     .info ul.lista li { justify-content: flex-start; gap: 8px; border: 0; padding: 5px 0; align-items: flex-start }
 
-    .bar { position: fixed; left: 0; right: 0; bottom: 0; padding: 12px 18px calc(12px + env(safe-area-inset-bottom, 0px)); background: var(--bg); border-top: 1px solid var(--line); display: flex; justify-content: center }
-    .bar button { width: 100%; max-width: 584px; border: 0; border-radius: 999px; background: var(--accent2); color: #fff; font: 700 17px inherit; padding: 14px; cursor: pointer }
-    .bar button:disabled { opacity: .55; cursor: default }
+    .bar { position: fixed; left: 0; right: 0; bottom: 0; padding: 12px 18px calc(12px + env(safe-area-inset-bottom, 0px)); background: #1a0608; border-top: 2px solid var(--gold); display: flex; justify-content: center; z-index: 10 }
+    .bar button { width: 100%; max-width: 584px; border: 0; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent2)); color: #fff; font: 700 17px inherit; padding: 14px; cursor: pointer }
+    .bar button:not(:disabled) { animation: brilhaBtn 2s ease-in-out infinite }
+    .bar button:disabled { opacity: .55; cursor: default; animation: none }
+    @keyframes brilhaBtn { 0%,100% { box-shadow: 0 0 0 0 rgba(227,180,72,.6) } 70% { box-shadow: 0 0 0 12px rgba(227,180,72,0) } }
 
-    .overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, .45); z-index: 20; opacity: 0; pointer-events: none; transition: opacity .25s }
+    .overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, .5); z-index: 20; opacity: 0; pointer-events: none; transition: opacity .25s }
     .overlay.aberto { opacity: 1; pointer-events: auto }
 
-    .drawer { position: fixed; left: 0; right: 0; bottom: 0; z-index: 21; background: var(--bg); border-radius: 22px 22px 0 0; max-width: 620px; margin: 0 auto; max-height: 85vh; display: flex; flex-direction: column; transform: translateY(100%); transition: transform .28s ease; box-shadow: 0 -8px 30px rgba(0, 0, 0, .25) }
+    .drawer { position: fixed; left: 0; right: 0; bottom: 0; z-index: 21; background: #fff; border-radius: 22px 22px 0 0; max-width: 620px; margin: 0 auto; max-height: 85vh; display: flex; flex-direction: column; transform: translateY(100%); transition: transform .28s ease; box-shadow: 0 -8px 30px rgba(0, 0, 0, .4); border-top: 3px solid var(--gold) }
     .drawer.aberto { transform: translateY(0) }
     .drawer-topo { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px 10px }
-    .drawer-topo h3 { font-family: 'Pacifico', cursive; font-weight: 400; font-size: 24px; margin: 0; color: var(--accent) }
+    .drawer-topo h3 { font-family: 'Mountains of Christmas', cursive; font-weight: 700; font-size: 28px; margin: 0; color: var(--accent) }
     .drawer-fechar { width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--pill); color: var(--ink); font: 700 18px/1 inherit; cursor: pointer }
     .drawer-itens { overflow-y: auto; padding: 4px 20px; flex: 1 }
     .drawer-itens .vazio { color: var(--muted); text-align: center; padding: 30px 0 }
@@ -106,23 +140,31 @@
     .ci .nome { flex: 1 }
     .drawer-dados { padding: 6px 20px 2px }
     .drawer-dados label { display: block; font-weight: 700; font-size: 13px; margin: 10px 0 4px; color: var(--ink) }
-    .drawer-dados input { width: 100%; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); font: 500 15px inherit; padding: 11px }
+    .drawer-dados input { width: 100%; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink); font: 500 15px inherit; padding: 11px }
     .drawer-rodape { padding: 14px 20px calc(16px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line) }
-    .drawer-rodape .btn { width: 100%; border: 0; border-radius: 999px; background: var(--accent2); color: #fff; font: 700 17px inherit; padding: 14px; cursor: pointer }
+    .drawer-rodape .btn { width: 100%; border: 0; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent2)); color: #fff; font: 700 17px inherit; padding: 14px; cursor: pointer }
 
     .lightbox { position: fixed; inset: 0; z-index: 40; background: rgba(0, 0, 0, .85); display: none; align-items: center; justify-content: center; padding: 20px }
     .lightbox.aberto { display: flex }
     .lightbox img { max-width: 95vw; max-height: 90vh; border-radius: 14px; box-shadow: 0 10px 40px rgba(0, 0, 0, .5) }
     .lightbox .fechar-lb { position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .9); color: #333; font: 700 22px/1 inherit; cursor: pointer }
+
+    @media (prefers-reduced-motion: reduce) {
+      .neve, .luzes i, .bar button { animation: none !important }
+    }
   </style>
 </head>
 
 <body>
+  <div class="neve" id="neve" aria-hidden="true"></div>
   <main>
     <a class="voltar" href="index.html">← Voltar ao cardápio</a>
+    <div class="luzes" aria-hidden="true">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
     <header>
       <img class="logo" src="imagens/Captura de tela 2026-11-03 171447.png" alt="Logo LGR Docinhos e Bolos">
-      <h1>Especial de Natal</h1>
+      <h1>Feliz Natal!</h1>
       <p class="tag">Encomendas natalinas da LGR 🎄</p>
       <p class="dots">🎄 🎅 ⭐ 🎁 ❄️</p>
     </header>
@@ -148,7 +190,7 @@
     </div>
 
     <div class="cta">
-      <p>Deixe seu Natal mais doce com a LGR! 🎅</p>
+      <p>Deixe seu Natal mais doce com a LGR! 🎅✨</p>
       <p>Instagram: <a href="https://instagram.com/lgrdocesebolos" target="_blank" rel="noopener">@lgrdocesebolos</a></p>
       <p>WhatsApp: (53) 98130-4465</p>
     </div>
@@ -186,6 +228,23 @@
   <script src="natal.js"></script>
   <script>
     var qty = {};
+
+    // Neve caindo
+    (function () {
+      var box = document.getElementById("neve");
+      if (!box) return;
+      var flocos = ["❄", "❅", "❆", "✻", "•"];
+      for (var i = 0; i < 26; i++) {
+        var s = document.createElement("span");
+        s.textContent = flocos[Math.floor(Math.random() * flocos.length)];
+        s.style.left = Math.random() * 100 + "vw";
+        s.style.fontSize = (8 + Math.random() * 16) + "px";
+        s.style.animationDuration = (6 + Math.random() * 8) + "s";
+        s.style.animationDelay = (Math.random() * 8) + "s";
+        box.appendChild(s);
+      }
+    })();
+
     function abrirImagem(src) {
       var lb = document.getElementById("lightbox");
       document.getElementById("lightbox-img").src = src;
@@ -203,7 +262,7 @@
           im.onclick = function () { abrirImagem(img); };
           wrap.appendChild(im);
         }
-        var s = document.createElement("span"); s.textContent = n;
+        var s = document.createElement("span"); s.className = "nome-item"; s.textContent = n;
         if (sub) { var sm = document.createElement("small"); sm.textContent = sub; s.appendChild(sm); }
         wrap.appendChild(s);
         var q = document.createElement("div"); q.className = "q";
