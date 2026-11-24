@@ -3,18 +3,11 @@
 var dataNatal = {
   caixas: [
     {
-      nome: "Caixa 25 Doces",
-      preco: "R$ 52,00",
-      sabores: "Brigadeiro, Beijinho, Ferrero, Ninho com Nutella e Doce de leite",
-      obs: "Decoração natalina e embalagem presenteável",
-      img: "Captura de tela 2026-11-24 204250.png"
-    },
-    {
-      nome: "Caixa de doces natalinos",
+      nome: "Caixa de Doces",
       preco: "R$ 30,00",
       sabores: "A partir de 9 doces",
       obs: "Decoração natalina e embalagem presenteável",
-      img: ""
+      img: "Captura de tela 2026-11-24 204250.png"
     }
   ],
   panetones: [
