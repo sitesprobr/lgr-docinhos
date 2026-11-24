@@ -1,5 +1,8 @@
 // Cardápio de Natal da LGR
 var dataNatal = {
+  caixas: [
+    ["Caixa de doces natalinos", "A partir de 9 doces • R$ 30,00"]
+  ],
   panetones: [
     ["Mini panetone de frutas ou chocotone", "R$ 19,90"],
     ["Mini panetone trufado", "R$ 30,00"],
