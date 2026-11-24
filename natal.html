@@ -93,6 +93,8 @@
     }
 
     section { background: rgba(255,255,255,.96); border-radius: 20px; padding: 6px 16px 14px; margin-top: 18px; box-shadow: 0 8px 24px rgba(0,0,0,.25); border: 2px solid var(--gold) }
+    section.caixas-sec { background: transparent; border: 0; box-shadow: none; padding: 0 }
+    section.caixas-sec > h2 { margin-left: 2px }
 
     ul { list-style: none; margin: 0; padding: 0 }
 
@@ -100,6 +102,20 @@
     li:last-child { border-bottom: 0 }
     li span small { display: block; color: var(--muted); font-size: 13px }
     li span.nome-item { font-weight: 700 }
+
+    /* Cartão de caixa (estilo do exemplo) */
+    .caixa-card { background: #fff; border-radius: 20px; overflow: hidden; margin-bottom: 16px; box-shadow: 0 8px 24px rgba(0,0,0,.28); border: 2px solid var(--gold) }
+    .caixa-foto { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; cursor: pointer; background: #fbe9ec }
+    .caixa-foto.vazio { display: flex; align-items: center; justify-content: center; font-size: 60px; color: var(--pill); aspect-ratio: 16 / 9 }
+    .caixa-corpo { display: flex; gap: 12px; padding: 16px 18px; align-items: flex-start }
+    .caixa-esq { flex: 0 0 42%; border-right: 1px solid var(--line); padding-right: 12px }
+    .caixa-nome { font-family: 'Mountains of Christmas', cursive; font-weight: 700; font-size: 28px; color: var(--ink); line-height: 1.05 }
+    .caixa-preco { color: var(--accent); font-weight: 700; font-size: 20px; margin-top: 4px }
+    .caixa-dir { flex: 1 }
+    .caixa-sabores { color: var(--accent2); font-weight: 700; font-size: 14px }
+    .caixa-obs { color: var(--muted); font-size: 12px; margin-top: 8px }
+    .caixa-add { margin-top: 12px; width: 100%; border: 0; border-radius: 999px; background: var(--accent2); color: #fff; font: 700 15px inherit; padding: 11px; cursor: pointer }
+    .caixa-add.ativo { background: var(--accent) }
 
     .q { display: flex; align-items: center; gap: 8px; flex: none }
     .q button { width: 34px; height: 34px; border-radius: 50%; border: 0; background: var(--pill); color: var(--ink); font: 700 20px/1 inherit; cursor: pointer }
@@ -171,9 +187,9 @@
       <p class="dots">🎄 🎅 ⭐ 🎁 ❄️</p>
     </header>
 
-    <section>
+    <section class="caixas-sec">
       <h2>🎁 Caixas de Natal</h2>
-      <ul id="caixas"></ul>
+      <div id="caixas"></div>
     </section>
 
     <section>
@@ -269,6 +285,46 @@
       document.getElementById("lightbox-img").src = src;
       lb.classList.add("aberto");
     }
+
+    // Cartões de caixa (layout do exemplo)
+    function renderCaixas(id, list) {
+      var box = document.getElementById(id);
+      if (!box || !list) return;
+      list.forEach(function (c) {
+        var card = document.createElement("div"); card.className = "caixa-card";
+        if (c.img) {
+          var im = document.createElement("img"); im.className = "caixa-foto"; im.src = c.img; im.alt = c.nome; im.loading = "lazy";
+          im.onclick = function () { abrirImagem(c.img); };
+          card.appendChild(im);
+        } else {
+          var ph = document.createElement("div"); ph.className = "caixa-foto vazio"; ph.textContent = "🎁";
+          card.appendChild(ph);
+        }
+        var corpo = document.createElement("div"); corpo.className = "caixa-corpo";
+        var esq = document.createElement("div"); esq.className = "caixa-esq";
+        var nm = document.createElement("div"); nm.className = "caixa-nome"; nm.textContent = c.nome;
+        var pr = document.createElement("div"); pr.className = "caixa-preco"; pr.textContent = c.preco;
+        esq.append(nm, pr);
+        var dir = document.createElement("div"); dir.className = "caixa-dir";
+        var sb = document.createElement("div"); sb.className = "caixa-sabores"; sb.textContent = c.sabores;
+        dir.appendChild(sb);
+        if (c.obs) { var ob = document.createElement("div"); ob.className = "caixa-obs"; ob.textContent = c.obs; dir.appendChild(ob); }
+        var btn = document.createElement("button"); btn.className = "caixa-add"; btn.type = "button";
+        var nome = c.nome + " — " + c.preco;
+        function atualiza() {
+          var c2 = qty[nome] || 0;
+          btn.textContent = c2 ? ("Adicionado (" + c2 + ") ✓") : "Adicionar";
+          btn.classList.toggle("ativo", !!c2);
+        }
+        btn.onclick = function () { qty[nome] = (qty[nome] || 0) + 1; atualiza(); sync(); };
+        dir.appendChild(btn);
+        atualiza();
+        corpo.append(esq, dir);
+        card.appendChild(corpo);
+        box.appendChild(card);
+      });
+    }
+
     function render(id, list) {
       var ul = document.getElementById(id);
       if (!ul || !list) return;
@@ -302,7 +358,8 @@
         c.textContent = txt; box.appendChild(c);
       });
     }
-    render("caixas", dataNatal.caixas);
+
+    renderCaixas("caixas", dataNatal.caixas);
     render("panetones", dataNatal.panetones);
     render("portapanetone", dataNatal.portapanetone);
     renderChips("saboresTrufados", dataNatal.saboresTrufados);
