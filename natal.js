@@ -7,7 +7,7 @@ var dataNatal = {
       preco: "R$ 30,00",
       sabores: "A partir de 9 doces",
       obs: "Decoração natalina e embalagem presenteável",
-      img: "Captura de tela 2026-11-24 204250.png"
+      img: "Captura%20de%20tela%202026-11-24%20204250.png"
     }
   ],
   panetones: [
