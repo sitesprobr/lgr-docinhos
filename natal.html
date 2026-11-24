@@ -40,7 +40,6 @@
       overflow-x: hidden;
     }
 
-    /* Neve */
     .neve { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden }
     .neve span {
       position: absolute; top: -10px; color: #fff; opacity: .85;
@@ -54,7 +53,6 @@
 
     main { max-width: 620px; margin: 0 auto; padding: 0 18px; position: relative; z-index: 1 }
 
-    /* Cordão de luzes */
     .luzes { display: flex; justify-content: center; gap: 14px; padding: 10px 0 0; flex-wrap: wrap }
     .luzes i {
       width: 11px; height: 15px; border-radius: 50%; display: inline-block;
@@ -110,6 +108,10 @@
 
     .obs { color: var(--muted); font-size: 14px; margin: 10px 4px 0 }
     li .nome-wrap { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0 }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 0 4px }
+    .chip { background: #fff3f3; border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-size: 14px; font-weight: 600; color: var(--ink) }
+    .chip.verde { background: #eaf7ef; border-color: #bfe6cf }
 
     .cta { background: rgba(255,255,255,.96); border: 2px solid var(--gold); border-radius: 20px; padding: 20px; margin-top: 20px; text-align: center }
     .cta p { margin: 4px 0 }
@@ -175,6 +177,19 @@
     </section>
 
     <section>
+      <h2>🍫 Sabores dos Trufados</h2>
+      <div class="chips" id="saboresTrufados"></div>
+      <p class="obs">Escolha o sabor do seu panetone trufado ao fazer o pedido.</p>
+    </section>
+
+    <section>
+      <h2>✨ Adicionais</h2>
+      <p class="obs" style="margin-top:4px">Recheios e finalização — combine no pedido.</p>
+      <div class="chips" id="adicionaisNatal"></div>
+      <p class="obs">Consultar disponibilidade de sabores.</p>
+    </section>
+
+    <section>
       <h2>🎁 Porta Panetone</h2>
       <ul id="portapanetone"></ul>
     </section>
@@ -212,8 +227,8 @@
       <input id="c-tel" type="tel" placeholder="(53) 9____-____">
       <label for="c-end">Endereço de entrega</label>
       <input id="c-end" type="text" placeholder="Rua, número, bairro, referência">
-      <label for="c-obs">Observações (opcional)</label>
-      <input id="c-obs" type="text" placeholder="Ex: data de entrega, sabores...">
+      <label for="c-obs">Sabor / observações</label>
+      <input id="c-obs" type="text" placeholder="Ex: sabor do trufado, adicionais, data de entrega...">
     </div>
     <div class="drawer-rodape">
       <button class="btn" id="finalizar">Enviar encomenda no WhatsApp</button>
@@ -229,7 +244,6 @@
   <script>
     var qty = {};
 
-    // Neve caindo
     (function () {
       var box = document.getElementById("neve");
       if (!box) return;
@@ -275,8 +289,18 @@
         q.append(minus, out, plus); li.append(wrap, q); ul.appendChild(li);
       });
     }
+    function renderChips(id, list, classe) {
+      var box = document.getElementById(id);
+      if (!box || !list) return;
+      list.forEach(function (txt) {
+        var c = document.createElement("span"); c.className = "chip" + (classe ? " " + classe : "");
+        c.textContent = txt; box.appendChild(c);
+      });
+    }
     render("panetones", dataNatal.panetones);
     render("portapanetone", dataNatal.portapanetone);
+    renderChips("saboresTrufados", dataNatal.saboresTrufados);
+    renderChips("adicionaisNatal", dataNatal.adicionaisNatal, "verde");
 
     document.getElementById("fechar-lb").onclick = function () { document.getElementById("lightbox").classList.remove("aberto"); };
     document.getElementById("lightbox").onclick = function (e) { if (e.target.id === "lightbox") this.classList.remove("aberto"); };
@@ -337,7 +361,7 @@
       if (nome) msg += "\n\nNome: " + nome;
       if (tel) msg += "\nTelefone: " + tel;
       if (end) msg += "\nEndereço: " + end;
-      if (obs) msg += "\nObservações: " + obs;
+      if (obs) msg += "\nSabor/Obs: " + obs;
       window.open("https://wa.me/5553981304465?text=" + encodeURIComponent(msg), "_blank");
     };
   </script>
