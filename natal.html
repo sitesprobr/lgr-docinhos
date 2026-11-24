@@ -128,31 +128,21 @@
     </header>
 
     <section>
-      <h2>🎁 Caixas e Kits de Natal</h2>
-      <ul id="caixasnatal"></ul>
-    </section>
-
-    <section>
       <h2>🍞 Panetones & Chocotones</h2>
       <ul id="panetones"></ul>
     </section>
 
     <section>
-      <h2>🎂 Bolos & Sobremesas</h2>
-      <ul id="bolosnatal"></ul>
-      <p class="obs">Recheios e tamanho combinados na hora do pedido.</p>
-    </section>
-
-    <section>
-      <h2>🍬 Doces de Natal</h2>
-      <ul id="docesnatal"></ul>
+      <h2>🎁 Porta Panetone</h2>
+      <ul id="portapanetone"></ul>
     </section>
 
     <div class="info">
       <h3>📋 Encomendas de Natal</h3>
       <ul class="lista">
         <li>🎄 Faça sua encomenda com antecedência para garantir a data.</li>
-        <li>💰 Pedido confirmado mediante 50% de entrada via Pix.</li>
+        <li>💰 Os valores podem variar conforme a quantidade de pedidos.</li>
+        <li>🎁 Pedidos acima de R$ 250,00 têm desconto especial!</li>
         <li>📱 Combine sabores, tamanhos e entrega pelo WhatsApp.</li>
       </ul>
     </div>
@@ -226,10 +216,8 @@
         q.append(minus, out, plus); li.append(wrap, q); ul.appendChild(li);
       });
     }
-    render("caixasnatal", dataNatal.caixasnatal);
     render("panetones", dataNatal.panetones);
-    render("bolosnatal", dataNatal.bolosnatal);
-    render("docesnatal", dataNatal.docesnatal);
+    render("portapanetone", dataNatal.portapanetone);
 
     document.getElementById("fechar-lb").onclick = function () { document.getElementById("lightbox").classList.remove("aberto"); };
     document.getElementById("lightbox").onclick = function (e) { if (e.target.id === "lightbox") this.classList.remove("aberto"); };
