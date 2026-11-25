@@ -1,5 +1,5 @@
 // Cardápio de Natal da LGR
-// Caixas: { nome, preco, sabores, obs, img }
+// Caixas / combos: { nome, preco, sabores, obs, img }
 var dataNatal = {
   caixas: [
     {
@@ -8,6 +8,15 @@ var dataNatal = {
       sabores: "A partir de 9 doces",
       obs: "Decoração natalina e embalagem presenteável",
       img: "Captura%20de%20tela%202026-11-24%20204250.png"
+    }
+  ],
+  combos: [
+    {
+      nome: "Monte seu Combo",
+      preco: "R$ 100,00",
+      sabores: "Bolo a partir de 1kg + Doces Gourmet",
+      obs: "Monte do seu jeito! Combine sabores pelo WhatsApp.",
+      img: "Captura%20de%20tela%202026-11-24%20212853.png"
     }
   ],
   panetonesFotos: [
