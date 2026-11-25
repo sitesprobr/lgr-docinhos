@@ -21,6 +21,10 @@ var dataNatal = {
     ["Panetone 250g trufado", "R$ 50,00"],
     ["Panetone 500g chocotone trufado", "R$ 70,00"]
   ],
+  empresas: [
+    ["Mini panetones (acima de 10 unidades)", "R$ 15,00 cada"],
+    ["Panetone 250g (acima de 10 unidades)", "R$ 28,00 cada"]
+  ],
   portapanetone: [
     ["Porta panetone Mini", "R$ 10,00"],
     ["Porta panetone 250g", "R$ 20,00"],
