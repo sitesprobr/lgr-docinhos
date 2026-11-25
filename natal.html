@@ -103,7 +103,6 @@
     li span small { display: block; color: var(--muted); font-size: 13px }
     li span.nome-item { font-weight: 700 }
 
-    /* Cartão de caixa (estilo do exemplo) */
     .caixa-card { background: #fff; border-radius: 20px; overflow: hidden; margin-bottom: 16px; box-shadow: 0 8px 24px rgba(0,0,0,.28); border: 2px solid var(--gold) }
     .caixa-foto { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; cursor: pointer; background: #fbe9ec }
     .caixa-foto.vazio { display: flex; align-items: center; justify-content: center; font-size: 60px; color: var(--pill); aspect-ratio: 16 / 9 }
@@ -116,6 +115,9 @@
     .caixa-obs { color: var(--muted); font-size: 12px; margin-top: 8px }
     .caixa-add { margin-top: 12px; width: 100%; border: 0; border-radius: 999px; background: var(--accent2); color: #fff; font: 700 15px inherit; padding: 11px; cursor: pointer }
     .caixa-add.ativo { background: var(--accent) }
+
+    .destaque-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 6px 0 12px }
+    .destaque-fotos img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 14px; border: 2px solid var(--gold); cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.2) }
 
     .q { display: flex; align-items: center; gap: 8px; flex: none }
     .q button { width: 34px; height: 34px; border-radius: 50%; border: 0; background: var(--pill); color: var(--ink); font: 700 20px/1 inherit; cursor: pointer }
@@ -194,6 +196,7 @@
 
     <section>
       <h2>🍞 Panetones & Chocotones</h2>
+      <div class="destaque-fotos" id="panetonesFotos"></div>
       <ul id="panetones"></ul>
     </section>
 
@@ -286,7 +289,6 @@
       lb.classList.add("aberto");
     }
 
-    // Cartões de caixa (layout do exemplo)
     function renderCaixas(id, list) {
       var box = document.getElementById(id);
       if (!box || !list) return;
@@ -325,6 +327,16 @@
       });
     }
 
+    function renderFotos(id, list) {
+      var box = document.getElementById(id);
+      if (!box || !list) return;
+      list.forEach(function (src) {
+        var im = document.createElement("img"); im.src = src; im.alt = "Panetone"; im.loading = "lazy";
+        im.onclick = function () { abrirImagem(src); };
+        box.appendChild(im);
+      });
+    }
+
     function render(id, list) {
       var ul = document.getElementById(id);
       if (!ul || !list) return;
@@ -360,6 +372,7 @@
     }
 
     renderCaixas("caixas", dataNatal.caixas);
+    renderFotos("panetonesFotos", dataNatal.panetonesFotos);
     render("panetones", dataNatal.panetones);
     render("portapanetone", dataNatal.portapanetone);
     renderChips("saboresTrufados", dataNatal.saboresTrufados);
