@@ -10,6 +10,10 @@ var dataNatal = {
       img: "Captura%20de%20tela%202026-11-24%20204250.png"
     }
   ],
+  panetonesFotos: [
+    "Captura%20de%20tela%202026-11-24%20205722.png",
+    "Captura%20de%20tela%202026-11-24%20205742.png"
+  ],
   panetones: [
     ["Mini panetone de frutas ou chocotone", "R$ 19,90"],
     ["Mini panetone trufado", "R$ 30,00"],
