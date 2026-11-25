@@ -119,6 +119,8 @@
     .destaque-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 6px 0 12px }
     .destaque-fotos img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 14px; border: 2px solid var(--gold); cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.2) }
 
+    .empresa-nota { color: var(--accent2); font-weight: 700; font-size: 14px; margin: 10px 4px 0 }
+
     .q { display: flex; align-items: center; gap: 8px; flex: none }
     .q button { width: 34px; height: 34px; border-radius: 50%; border: 0; background: var(--pill); color: var(--ink); font: 700 20px/1 inherit; cursor: pointer }
     .q button.add { background: var(--accent2); color: #fff }
@@ -198,6 +200,12 @@
       <h2>🍞 Panetones & Chocotones</h2>
       <div class="destaque-fotos" id="panetonesFotos"></div>
       <ul id="panetones"></ul>
+    </section>
+
+    <section>
+      <h2>🏢 Para Empresas</h2>
+      <ul id="empresas"></ul>
+      <p class="empresa-nota">🎁 Valores válidos para empresas (pedidos em quantidade).</p>
     </section>
 
     <section>
@@ -374,6 +382,7 @@
     renderCaixas("caixas", dataNatal.caixas);
     renderFotos("panetonesFotos", dataNatal.panetonesFotos);
     render("panetones", dataNatal.panetones);
+    render("empresas", dataNatal.empresas);
     render("portapanetone", dataNatal.portapanetone);
     renderChips("saboresTrufados", dataNatal.saboresTrufados);
     renderChips("adicionaisNatal", dataNatal.adicionaisNatal, "verde");
